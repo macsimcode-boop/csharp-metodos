@@ -11,7 +11,7 @@ namespace MyApp
             int numero = int.Parse(Console.ReadLine());
             
 
-            Console.WriteLine($"O numero é primo: {Palindromo(numero)} ");
+            Console.WriteLine($"O numero é primo: {Primo(numero)} ");
         }
 
 
