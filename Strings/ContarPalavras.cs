@@ -1,23 +1,23 @@
-namespace CsharpMetodos
+static int ContarPalavras(string texto)
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Escreva um conjunto de palavras:");
-            string texto = Console.ReadLine();
-            Console.WriteLine($"Número de palavras: {ContarPalavras(texto)}");
-        }
+    int palavras = 0;
+    bool dentroDePalavra = false;
 
-        static int ContarPalavras(string texto)
+    for (int i = 0; i < texto.Length; i++)
+    {
+        if (texto[i] != ' ')
         {
-            int palavras = 1;
-            for (int i = 0; i < texto.Length; i++)
+            if (!dentroDePalavra)
             {
-                if (texto[i] == ' ')
-                    palavras++;
+                palavras++;
+                dentroDePalavra = true;
             }
-            return palavras;
+        }
+        else
+        {
+            dentroDePalavra = false;
         }
     }
+
+    return palavras;
 }
