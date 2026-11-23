@@ -1,21 +1,23 @@
-class Program
+static int ContarPalavras(string texto)
 {
-    static void Main(string[] args)
+    int palavras = 0;
+    bool dentroDePalavra = false;
+
+    for (int i = 0; i < texto.Length; i++)
     {
-        Console.WriteLine("Digite uma palavra:");
-        string texto = Console.ReadLine();
-        Console.WriteLine($"A palavra tem {ContarVogais(texto)} vogais");
+        if (texto[i] != ' ')
+        {
+            if (!dentroDePalavra)
+            {
+                palavras++;
+                dentroDePalavra = true;
+            }
+        }
+        else
+        {
+            dentroDePalavra = false;
+        }
     }
 
-    static int ContarVogais(string texto)
-    {
-        int vogais = 0;
-        for (int i = 0; i < texto.Length; i++)
-        {
-            char letra = texto[i];
-            if (letra == 'a' || letra == 'e' || letra == 'i' || letra == 'o' || letra == 'u')
-                vogais++;
-        }
-        return vogais;
-    }
+    return palavras;
 }
